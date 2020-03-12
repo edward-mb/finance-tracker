@@ -1,0 +1,37 @@
+# pre-commit:
+#   parallel: true
+#   commands:
+#     eslint:
+#       glob: "*.{js,ts}"
+#       run: yarn eslint {staged_files}
+#     rubocop:
+#       tags: backend style
+#       glob: "*.rb"
+#       exclude: "application.rb|routes.rb"
+#       run: bundle exec rubocop --force-exclusion {all_files}
+#     govet:
+#       tags: backend style
+#       files: git ls-files -m
+#       glob: "*.go"
+#       run: go vet {files}
+#   scripts:
+#     "hello.js":
+#       runner: node
+#     "any.go":
+#       runner: go run
+#
+
+pre-commit:
+  parallel: true
+  commands:
+    js:
+      glob: "*.js"
+      run: "yarn prettier --write {staged_files} && yarn eslint {staged_files} && git add {staged_files}"
+    css:
+      glob: "*.{css,pcss}"
+      run: "yarn prettier --write {staged_files} && yarn stylelint --fix {staged_files} && git add {staged_files}"
+    ruby:
+      tags: backend style
+      glob: "*.{rb, erb}"
+      run: rubocop {staged_files} --parallel
+      # run: bundle exec rubocop --force-exclusion {all_files}
