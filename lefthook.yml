@@ -33,5 +33,6 @@ pre-commit:
     ruby:
       tags: backend style
       glob: "*.{rb, erb}"
-      run: rubocop {staged_files} --parallel
+      run: bundle exec standardrb {staged_files}
+      # run: rubocop {staged_files} --parallel
       # run: bundle exec rubocop --force-exclusion {all_files}
