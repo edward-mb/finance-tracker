@@ -17,6 +17,6 @@
 <div id="results">
   <%= render 'users/friend_result' %>
 </div>
-<% if  !@friends.empty? %>
+<% unless @friends.empty? %>
   <%= render 'friends/list' %>
 <% end %>
