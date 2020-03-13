@@ -5,12 +5,12 @@
   <div class="card card-header results-block mb-3">
     <table class="col-md-12">
       <tbody>
-<% @friends.each do |friend|%>
-  <tr>
-    <td>
-        <strong>Name: </strong> <%= friend.full_name %>
+        <% @friends.each do |friend|%>
+          <tr>
+            <td>
+              <strong>Name: </strong> <%= friend.full_name %>
     </td>
-    <td><strong>Email: </strong> <%= friend.email %>
+            <td><strong>Email: </strong> <%= friend.email %>
 </td>
     <td><strong>Actions: </strong> <%= link_to "View Profile", '#',
          class: "btn btn-sm btn-success" %>
@@ -22,5 +22,5 @@
       </tbody>
     </table>
 
-      </div>
+  </div>
 <% end %>
