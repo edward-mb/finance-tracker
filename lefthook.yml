@@ -32,7 +32,10 @@ pre-commit:
       run: "yarn prettier --write {staged_files} && yarn stylelint --fix {staged_files} && git add {staged_files}"
     ruby:
       tags: backend style
-      glob: "*.{rb, erb}"
+      glob: "*.{rb}"
       run: bundle exec standardrb {staged_files}
+    eruby:
+      glob: "*.erb"
+      run: ruumba -D -a -e app/views -c .ruumba.yml
       # run: rubocop {staged_files} --parallel
       # run: bundle exec rubocop --force-exclusion {all_files}

@@ -1,10 +1,10 @@
-<h1>My Portfolio</h1>
+<h1>My Friends</h1>
 <div class="search-area">
-  <h3>Search Stocks</h3>
-  <%= form_tag search_stock_path, remote: true, method: :get do %>
+  <h3>Search Friends</h3>
+  <%= form_tag search_friend_path, remote: true, method: :get do %>
     <div class="form-group row">
       <div class="input-group">
-        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: 'form-control form-control-lg'  %>
+        <%= text_field_tag :friend, params[:friend], placeholder: "Search a friend", autofocus: true, class: 'form-control form-control-lg'  %>
         <div class="input-group-prepend">
           <%= button_tag type: :submit, class: "btn btn-success" do %>
             <i class="fas fa-search fa-2x"></i>
@@ -15,9 +15,8 @@
   <% end %>
 </div>
 <div id="results">
-  <%= render 'users/result' %>
+  <%= render 'users/friend_result' %>
 </div>
-<% if  !@tracked_stocks.empty? %>
-  <%= render 'stocks/list' %>
+<% if  !@friends.empty? %>
+  <%= render 'friends/list' %>
 <% end %>
-

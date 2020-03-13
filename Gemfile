@@ -35,6 +35,8 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "sqlite3", "~> 1.4"
   gem "standard"
+  gem "ruumba"
+  gem "pry"
 end
 
 group :development do
@@ -47,7 +49,7 @@ group :development do
 end
 
 group :production do
-    gem 'pg'
+  gem "pg"
 end
 
 group :test do
