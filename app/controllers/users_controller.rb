@@ -9,8 +9,9 @@ class UsersController < ApplicationController
 
   def search
     if params[:friend].present?
-      @friend = params[:friend]
-      unless @friend
+      @friends = User.search(params[:friend])
+      @friends = current_user.except_current_user(@friends)
+      unless @friends
         flash.now[:alert] = "Couldn't find user"
       end
     else
