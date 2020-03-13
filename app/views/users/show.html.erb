@@ -1,0 +1,54 @@
+<h2>User details</h2>
+  <div class="card card-header results-block">
+    <table class="col-md-12">
+      <tbody>
+          <tr>
+            <td>
+              <strong>Name: </strong> <%= @user.full_name%>
+            </td>
+            <td>
+              <strong>Email: </strong> <%= @user.email%>
+            </td>
+            <td>
+              <% if current_user.not_friends_with?(@user.id) %>
+                <%= link_to 'Follow friend?', friendships_path(friend: @user), class: 'btn btn-xs btn-success', method: :post%>
+              <% else %>
+                <span class="badge badge-secondary">You are friends</span>
+              <% end %>
+            </td>
+      </tbody>
+    </table>
+  </div>
+<% if @tracked_stocks.empty? 
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000009
+  
+                                                            
+  
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000010
+ else%>
+  <%= render 'stocks/list'%>
+<%  
+                                                            
+  
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000010
+ else
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000007
+  
+     
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000008
+ render 'stocks/list'
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000008
+  
+  %>
+    <p class="lead">This user is not tracking any stocks</p>
+<% else
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000007
+  
+     
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000008
+ render 'stocks/list'
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000008
+  
+  
+marker_58b01489_d9e6_42cd_9b1a_5cbb949c9504_0000000009
+ end %>
