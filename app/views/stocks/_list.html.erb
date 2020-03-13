@@ -8,15 +8,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @tracked_stocks.each do |stock| %>
+    <% @tracked_stocks.each do |stock|%>
       <tr>
         <th scope="row"><%= stock.ticker%></th>
-        <td><%= stock.name %></td>
-        <td><%= stock.last_price %></td>
+        <td><%= stock.name%></td>
+        <td><%= stock.last_price%></td>
         <td><%= link_to 'Remove', user_stock_path(stock), method: :delete, data: {confirm: 'are you sure?'},
-                                           class: 'btn btn-sm btn-warning' %></td>
+                                           class: 'btn btn-sm btn-warning'%></td>
       </tr>
-    <% end %>
+    <% end%>
   </tbody>
 </table>
 
