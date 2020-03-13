@@ -10,8 +10,8 @@ pre-commit:
     ruby:
       tags: backend style
       glob: "*.{rb}"
-      run: bundle exec standardrb {staged_files}
+      run: "bundle exec standardrb {staged_files} && git add {staged_files}"
     eruby:
       glob: "*.erb"
-      run: ruumba -D -a -e {staged_files} -c .ruumba.yml
+      run: "ruumba -D -a -e {staged_files} -c .ruumba.yml && git add {staged_files}"
       # run: ruumba -D -a -e app/views -c .ruumba.yml
